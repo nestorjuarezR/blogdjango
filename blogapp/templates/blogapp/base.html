@@ -63,7 +63,7 @@
   {% endfor %}
   {% endblock content %}
 
-
+  {% include 'blogapp/pagination.html' with page=posts %}
 
 
   {% block js %}
