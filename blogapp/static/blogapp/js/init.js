@@ -1,3 +1,4 @@
+
 (function ($) {
   $(function () {
     $('.slider').slider({
@@ -5,5 +6,6 @@
       height: 500
     });
     $('.parallax').parallax();
+    ('.sidenav').sidenav();
   }); // end of document ready
 })(jQuery); // end of jQuery name space

@@ -116,12 +116,15 @@ USE_TZ = True
 #Email
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = "nesk.company@gmail.com"
-EMAIL_HOST_PASSWORD = "ghthsbtvqjgrbxfu"
+
+EMAIL_HOST_USER = "camaraincubacion1@outlook.com"
+EMAIL_HOST_PASSWORD = "Drugmex2023$"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+#EMAIL_HOST_USER = "nesk.company@gmail.com"
+#EMAIL_HOST_PASSWORD = "ghthsbtvqjgrbxfu"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
