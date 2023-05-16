@@ -75,27 +75,35 @@
 
   {% block content %}
   <!-- Post -->
+  <div class="container section">
+    <h1>All</h1>
 
-  {% for post in posts %}
-  <div class="container">
     <div class="row">
-      <div class="col s12 m6">
-        <div class="card" id="tarjetas">
-          <div class="card-content white-text">
-            <span class="card-title">{{ post.title }}</span>
-            <p>{{ post.body|truncatewords:30|linebreaks }}</p>
-          </div>
-          <div class="card-action">
-            <a href="{{ post.id }}">Entrar</a>
-            <a href=""></a>
+      <!-- Inicio del ciclo for para mostar las categorias -->
+      <div class="divider"></div>
+      <div class="section">
+        {% for post in posts %}
+        <div class="col s12 m6 l4">
+          <div class="card medium hoverable">
+            <div class="card-image">
+              <p>Aqui va la imagen</p>
+            </div>
+            <div class=" card-content">
+              <span class=" card-title">{{post.title}}</span>
+              <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+            </div>
+            <!-- <div class="card-action">
+                    <a href="{{ info.url_name }}">Entrar</a>
+                </div> -->
+            <div class="card-action">
+              <a class="waves-effect waves-light btn" href="{{ post.id }}/">Entrar</a>
+            </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
-
-
-  {% endfor %}
   {% endblock content %}
 
   {% include 'blogapp/pagination.html' with page=posts %}
