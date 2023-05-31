@@ -6,6 +6,7 @@
       height: 500
     });
     $('.parallax').parallax();
-    ('.sidenav').sidenav();
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
   }); // end of document ready
 })(jQuery); // end of jQuery name space

@@ -2,14 +2,48 @@
 
 
 {% block content %}
-    <div class="contariner">
-        <div class="row">
-            <div class="col l12">
-                <h2 class="center-align"> {{ post.title }}</h2>
-                <p class="center-align">{{ post.body }}</p>
-            </div>
+<div class="contariner">
+    <div class="row">
+        <div class="col l12">
+            <h2 class="center-align"> {{ post.title }}</h2>
+            <p>Tags:
+                {% for tag in post.tags.all %}
+                <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                {{ tag.name }}
+                </a>
+                {% if not forloop.last %}, {% endif %}
+                {% endfor %}</p>
+            <p class="center-align">{{ post.body }}</p>
         </div>
     </div>
-{% endblock content %}
+</div>
+{% with comments.count as total_comments %}
+<p>
+    {{ total_comments}} comment{{total_comments|pluralize }}
+</p>
+{% endwith %}
 
-<p>Hola</p>
+
+
+{% for comment in comments %}
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i> Comment {{ forloop.counter }} by
+            {{comment.name}} {{ comment.created }}</div>
+        <div class="collapsible-body"><span>{{comment.body}}.</span></div>
+    </li>
+    {% empty %}
+    <p>No hay comentarios</p>
+</ul>
+{% endfor %}
+
+<h2>Similar posts</h2>
+{% for post in similar_posts %}
+<p>
+<a href="{{ post.id }}/">{{ post.title }}</a>
+</p>
+{% empty %}
+There are no similar posts yet.
+{% endfor %}
+
+{% endblock content %}

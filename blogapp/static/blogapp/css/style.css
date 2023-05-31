@@ -8,3 +8,11 @@ nav {
 -moz-box-shadow: 10px 10px 19px -1px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 19px -1px rgba(0,0,0,0.75);
 }
+
+#tab_down{
+    padding-left: 200px;
+}
+
+#logo{
+padding-left: 50px;
+font-size: 30px}

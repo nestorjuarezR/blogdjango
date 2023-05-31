@@ -1,0 +1,21 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}
+<h3>Comparte el post</h3>
+{% endblock %}
+
+{% block content %}
+    {% if sent %}
+        <h1>Email enviado correctamente</h1>
+        <p>
+            {{ post.title }} fue enviado correctamente a {{ form.cleaned_data.to }}
+        </p>
+    {% else %}
+        <h3>Share {{post.title}} by email</h3>
+        <form action="post" novalidate>
+            {{form.as_p}}
+            {% csrf_token %}
+            <input type="submit" value="Send e-mail">
+        </form>
+    {% endif %}
+{% endblock %}
