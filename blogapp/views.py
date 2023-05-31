@@ -28,6 +28,8 @@ def index(request,tag_slug=None):
                                  {'posts': posts,
                                  'tag': tag})
 
+
+
 def post_detail(request,id):
     post = get_object_or_404(Post,
                              id=id,

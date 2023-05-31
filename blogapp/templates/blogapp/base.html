@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,7 @@
       <ul class="tabs tabs-transparent" id="tab_down">
         <li class="tab"><a href="#">All</a></li>
         <li class="tab"><a class="active" href="#test2">Populares</a></li>
-        <li class="tab "><a href="#test3">Recientes</a></li>
+        <li class="tab "><a href="#">Recientes</a></li>
       </ul>
     </div>
   </nav>
@@ -77,7 +78,19 @@
   <!-- Post -->
   <div class="container section">
     <h1>Post</h1>
+    <p>Hay un total de {% total_posts %} post</p>
+    <h3>Latest posts</h3>
+      {% show_latest_posts 3 %}
 
+    <h3>Most commented posts</h3>
+    {% get_most_commented_posts as most_commented_posts %}
+    <ul>
+      {% for post in most_commented_posts %}
+      <li>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+      </li>
+    </ul>
+      {% endfor %}
     <div class="row">
       <!-- Inicio del ciclo for para mostar las categorias -->
       <div class="divider"></div>
